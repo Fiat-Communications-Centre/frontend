@@ -13,7 +13,7 @@ export const MAIN_NAV_ROUTES: AppRoute[] = [
     href: "/",
   },
   {
-    title: "About",
+    title: "About Us",
     href: "/about",
   },
   {
@@ -21,34 +21,62 @@ export const MAIN_NAV_ROUTES: AppRoute[] = [
     href: "/services",
     routes: [
       {
-        title: "Service 1",
-        href: "/services/service-1",
-        description: "Service-1",
+        title: "All Services",
+        href: "/services",
+        description: "Explore the full range of our services.",
       },
       {
-        title: "Service 2",
-        href: "/services/service-2",
-        description: "Service-2",
+        title: "Audiovisual Productions",
+        href: "/services/audiovisual-productions",
+        description:
+          "Professional audiovisual content creation and production.",
       },
       {
-        title: "Service 3",
-        href: "/services/service-3",
-        description: "Service-3",
+        title: "Graphics Design",
+        href: "/services/graphics-design",
+        description: "Creative and impactful graphic design solutions.",
       },
       {
-        title: "Service 4",
-        href: "/services/service-4",
-        description: "Service-4",
+        title: "Web & Mobile Development",
+        href: "/services/web-mobile-development",
+        description: "Cutting-edge web and mobile application development.",
       },
       {
-        title: "Service 5",
-        href: "/services/service-5",
-        description: "Service-5",
+        title: "Strategic Organizations Communication",
+        href: "/services/organization-communications",
+        description:
+          "Comprehensive communication strategies for organizations.",
       },
       {
-        title: "Service 6",
-        href: "/services/service-6",
-        description: "Service-6",
+        title: "Trainings",
+        href: "/services/trainings",
+        description: "Expert-led training sessions tailored to your needs.",
+      },
+      {
+        title: "Consultancy Services",
+        href: "/services/consultancy",
+        description: "Professional advice and solutions for business growth.",
+      },
+      {
+        title: "Research",
+        href: "/services/research",
+        description:
+          "In-depth research services to inform strategic decisions.",
+      },
+      {
+        title: "Advertising & Promotions",
+        href: "/services/advertising-promotions",
+        description: "Effective advertising and promotional strategies.",
+      },
+      {
+        title: "Religious Organization Databases",
+        href: "/services/religious-organizations-databases",
+        description: "Custom database solutions for religious organizations.",
+      },
+      {
+        title: "Crisis Communication Plan",
+        href: "/services/crisis-communication-plan",
+        description: "Developing robust plans to manage crisis communication.",
       },
     ],
   },

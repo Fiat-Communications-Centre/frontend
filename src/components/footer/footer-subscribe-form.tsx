@@ -64,7 +64,7 @@ export function FooterSubscribeForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Subscribe</Button>
+        <Button type="submit" >Subscribe</Button>
       </form>
     </Form>
   );

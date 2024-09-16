@@ -7,8 +7,9 @@ import BottomFooter from "./bottom-footer";
 
 function MainFooter() {
   return (
-    <footer className="w-full bg-white text-gray-600 dark:bg-black/10 dark:text-gray-400  px-4 border-t-[1px] border-white/20">
-      <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 py-16">
+    <footer className="relative w-full  bg-[url(/footer-bg.jpg)] text-gray-600  dark:text-gray-400 border-t-[1px] border-white/20">
+      <div className="absolute inset-0 z-[1]  bg-black/10 dark:bg-black/90"></div>
+      <section className="px-4 relative z-[2] container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 py-16">
         <div className="flex flex-col space-y-2">
           <Image
             src={"/favicon.ico"}
@@ -27,7 +28,7 @@ function MainFooter() {
               <LucideHelpCircle className="h-12 w-12" />
             </div>
             <div>
-              <h6 className="text-green-400">Need Help?</h6>
+              <h6 className="text-secondary font-semibold">Need Help?</h6>
               <h2>
                 <Link href="/contact">Contact Us</Link>
               </h2>
@@ -151,7 +152,7 @@ function MainFooter() {
           <FooterSubscribeForm />
         </div>
       </section>
-      <BottomFooter />
+      <BottomFooter className="relative z-[2] bg-primary text-accent dark:bg-white/10"/>
     </footer>
   );
 }

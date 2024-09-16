@@ -17,10 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full w-full min-h-screen" suppressHydrationWarning>
+    <html lang="en" className="h-full w-full min-h-screen scroll-smooth" suppressHydrationWarning>
       <body
         className={cn(
-          `h-full w-full bg-white text-black dark:bg-black dark:text-gray-400`,
+          `h-full w-full flex flex-col min-h-screen bg-white text-black dark:bg-black dark:text-gray-400`,
           inter.className
         )}
       >
