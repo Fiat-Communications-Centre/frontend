@@ -150,7 +150,7 @@ export default function HomePage() {
           descriptionClassName="text-accent/60"
           description="At FIAT Communications & Consultancy Centre, we are committed to excellence and value the trust our clients place in us. These testimonials reflect the real impact of our services, as we continue to strive for the highest level of client satisfaction. We look forward to making your experience with us equally exceptional."
         />
-        <TestimonialCarousel className="relative container mx-auto z-[2] px-4" />
+        <TestimonialCarousel className="relative container mx-auto z-[2] pl-4" />
       </section>
 
       {/* articles */}
