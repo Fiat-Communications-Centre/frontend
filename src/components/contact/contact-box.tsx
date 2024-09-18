@@ -7,7 +7,7 @@ interface ContactBoxProps {
   title: string;
   className?: string;
   children: React.ReactNode;
-  link: string;
+  link?: string;
 }
 
 function ContactBox({
@@ -19,7 +19,7 @@ function ContactBox({
 }: ContactBoxProps) {
   return (
     <Link
-      href={link}
+      href={link ?? "#"}
       className={cn(
         `text-left relative py-5 px-7 rounded-lg border border-solid border-black/10`,
         className

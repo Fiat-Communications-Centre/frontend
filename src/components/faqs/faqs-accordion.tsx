@@ -36,8 +36,8 @@ function FaqsAccordion() {
     <Accordion type="single" collapsible className="w-full">
       {faqs.map((item, index) => (
         <AccordionItem key={`faq-${index}`} value={`faq-${index}`}>
-          <AccordionTrigger className="text-primary font-bold">{item.question}</AccordionTrigger>
-          <AccordionContent>{item.answer}</AccordionContent>
+          <AccordionTrigger className="text-primary font-bold text-lg">{item.question}</AccordionTrigger>
+          <AccordionContent className="text-sm">{item.answer}</AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>

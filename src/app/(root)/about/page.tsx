@@ -177,7 +177,7 @@ export default function AboutPage() {
           title="Passionate Personalities, Versatile Brains"
           subTitle="Team Member"
         />
-        <TeamList />
+        <TeamList featuredOnly />
       </section>
     </Fragment>
   );

@@ -9,7 +9,6 @@ import ServicesList from "@/components/services/services-list";
 import IconCard from "@/components/shared/icon-card";
 import SectionTitle from "@/components/shared/section-title";
 import TestimonialCarousel from "@/components/testimonials/testimonial-carousel";
-import { Accordion } from "@/components/ui/accordion";
 import { LucideCog, LucideCompass } from "lucide-react";
 import { Fragment } from "react";
 
@@ -79,7 +78,7 @@ export default function HomePage() {
           subTitle="Trusted Solutions"
           description="Explore our wide range of services, tailored to meet your unique needs and drive success"
         />
-        <ServicesList className="container mx-auto" />
+        <ServicesList featuredOnly className="container mx-auto" />
       </section>
       <section className="w-full py-20 bg-accent/80 dark:bg-white/10">
         <div className="container mx-auto px-4 space-y-10">

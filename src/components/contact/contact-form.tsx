@@ -10,7 +10,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
@@ -19,7 +18,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -99,12 +97,13 @@ function ContactForm({ className, title, description }: ContactFormProps) {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel className="text-lg">Name</FormLabel>
                   <FormControl>
                     <Input
                       type="text"
                       placeholder="Personal/company name"
                       {...field}
+                      className="h-14"
                     />
                   </FormControl>
 
@@ -117,12 +116,13 @@ function ContactForm({ className, title, description }: ContactFormProps) {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="text-lg">Email</FormLabel>
                   <FormControl>
                     <Input
                       type="email"
                       placeholder="Personal/company email address"
                       {...field}
+                      className="h-14"
                     />
                   </FormControl>
 
@@ -135,12 +135,13 @@ function ContactForm({ className, title, description }: ContactFormProps) {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Phone</FormLabel>
+                  <FormLabel className="text-lg">Phone</FormLabel>
                   <FormControl>
                     <Input
                       type="tel"
                       placeholder="Personal/company phone"
                       {...field}
+                      className="h-14"
                     />
                   </FormControl>
 
@@ -153,12 +154,13 @@ function ContactForm({ className, title, description }: ContactFormProps) {
               name="subject"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Subject</FormLabel>
+                  <FormLabel className="text-lg">Subject</FormLabel>
                   <FormControl>
                     <Input
                       type="text"
                       placeholder="Reason for contacting us"
                       {...field}
+                      className="h-14"
                     />
                   </FormControl>
 
@@ -172,12 +174,13 @@ function ContactForm({ className, title, description }: ContactFormProps) {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message</FormLabel>
+                  <FormLabel className="text-lg">Message</FormLabel>
                   <FormControl>
                     <Textarea
                       id="message"
                       rows={4}
                       {...field}
+                      className="h-14"
                       placeholder="Describe your enquiry"
                       required
                     />
