@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <>
       <MainHeader />
-      <main className="flex-1 mt-16 lg:mt-[110px]">{children}</main>
+      <main className="flex-1 w-full mt-16 lg:mt-[110px]">{children}</main>
       <MainFooter />
     </>
   );
