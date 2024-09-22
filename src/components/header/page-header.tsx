@@ -11,10 +11,10 @@ import {
 interface PageHeaderProps {
   title: string;
   backgroundImageUrl?: string;
-  breadcrumbItems?: {
+  breadcrumbItems?: ({
     title: string;
     href: string;
-  }[];
+  } | null)[];
 }
 function PageHeader({
   title,
@@ -47,22 +47,24 @@ function PageHeader({
                       Home
                     </BreadcrumbLink>
                   </BreadcrumbItem>
-                  {breadcrumbItems.map((item) => (
-                    <Fragment key={item.title}>
-                      <BreadcrumbSeparator>
-                        <Slash />
-                      </BreadcrumbSeparator>
+                  {breadcrumbItems
+                    .filter((x) => x !== null)
+                    .map((item) => (
+                      <Fragment key={item?.title}>
+                        <BreadcrumbSeparator>
+                          <Slash />
+                        </BreadcrumbSeparator>
 
-                      <BreadcrumbItem className="font-semibold uppercase  ">
-                        <BreadcrumbLink
-                          href={item.href}
-                          className="text-gray-400 hover:text-white/80 last:!text-white"
-                        >
-                          {item.title}
-                        </BreadcrumbLink>
-                      </BreadcrumbItem>
-                    </Fragment>
-                  ))}
+                        <BreadcrumbItem className="font-semibold uppercase  ">
+                          <BreadcrumbLink
+                            href={item?.href}
+                            className="text-gray-400 hover:text-white/80 last:!text-white max-sm:text-xs"
+                          >
+                            {item?.title}
+                          </BreadcrumbLink>
+                        </BreadcrumbItem>
+                      </Fragment>
+                    ))}
                 </BreadcrumbList>
               </Breadcrumb>
             )}

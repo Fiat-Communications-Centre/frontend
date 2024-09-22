@@ -63,7 +63,6 @@ export default function SimpleNewsletterForm() {
                     className="w-full h-13 px-5 py-3 placeholder-gray-500  sm:max-w-xs border-gray-300 rounded-md"
                   />
                 </FormControl>
-                <FormDescription>Your personal email address</FormDescription>
                 <FormMessage />
               </FormItem>
             )}

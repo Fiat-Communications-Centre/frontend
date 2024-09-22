@@ -20,7 +20,6 @@ const posts = [
     postTitle: "Navigating the Future of Technology",
     postExcerpt:
       "Explore how emerging technologies are shaping our world and what it means for the future of businesses.",
-    readMoreUrl: "blog-single.html#post1",
   },
   {
     id: "post-2",
@@ -30,7 +29,7 @@ const posts = [
     postTitle: "The Impact of AI on Everyday Life",
     postExcerpt:
       "From home assistants to self-driving cars, see how AI is increasingly integrated into our daily routines.",
-    readMoreUrl: "blog-single.html#post2",
+    
   },
   {
     id: "post-3",
@@ -40,7 +39,7 @@ const posts = [
     postTitle: "Sustainable Practices in Tech Industries",
     postExcerpt:
       "Discover how leading tech companies are turning to sustainable practices to reduce their environmental footprint.",
-    readMoreUrl: "blog-single.html#post3",
+  
   },
   {
     id: "post-4",
@@ -50,7 +49,7 @@ const posts = [
     postTitle: "Blockchain Beyond Cryptocurrency",
     postExcerpt:
       "Blockchain technology offers more than just cryptocurrency; learn about its applications in various industries.",
-    readMoreUrl: "blog-single.html#post4",
+   
   },
   {
     id: "post-5",
@@ -60,7 +59,7 @@ const posts = [
     postTitle: "Advances in Renewable Energy",
     postExcerpt:
       "With advancements in technology, renewable energy is becoming more accessible. Find out what's new and what's next.",
-    readMoreUrl: "blog-single.html#post5",
+    
   },
 ];
 export default function BlogsPage() {
@@ -86,7 +85,7 @@ export default function BlogsPage() {
                 postTitle: post.postTitle,
                 postExcerpt: post.postExcerpt,
                 imageSrc: post.imageSrc,
-                readMoreUrl: post.readMoreUrl,
+                readMoreUrl: `/blog/${post.id}`,
               }}
             />
           ))}
