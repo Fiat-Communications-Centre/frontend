@@ -7,7 +7,7 @@ import { Fragment } from "react";
 import VisionMission from "../about/partials/vision-mission";
 
 export const metadata: Metadata = {
-  title: "Fiat Communications Centre - Our Team",
+  title: "FIAT Communications & Consultancy Centre - Our Team",
   description: "Unparalleled Quality Communication",
 };
 

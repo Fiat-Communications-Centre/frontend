@@ -7,7 +7,7 @@ import { Metadata } from "next";
 import { Fragment } from "react";
 
 export const metadata: Metadata = {
-  title: "Fiat Communications Centre - Blog",
+  title: "FIAT Communications & Consultancy Centre - Blog",
   description: "Unparalleled Quality Communication",
 };
 

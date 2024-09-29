@@ -18,7 +18,7 @@ function RecentPostCard({
   className?: string;
 }) {
   return (
-    <div className={cn("flex justify-start items-center space-x-2", className)}>
+    <div className={cn("flex justify-start items-center space-x-2 hover:text-gray-900 dark:hover:text-white", className)}>
       <Image
         width="750"
         height="420"

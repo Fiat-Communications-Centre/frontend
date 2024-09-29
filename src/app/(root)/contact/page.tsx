@@ -8,7 +8,7 @@ import { Metadata } from "next";
 import { Fragment } from "react";
 
 export const metadata: Metadata = {
-  title: "Fiat Communications Centre - Contact",
+  title: "FIAT Communications & Consultancy Centre - Contact",
   description: "Unparalleled Quality Communication",
 };
 
@@ -39,7 +39,6 @@ export default function ContactPage() {
           />
           <div className="grid gap-4">
             <ContactBox
-              link="#"
               className="bg-white dark:bg-white/10"
               icon={<LucideHelpCircle className="h-full w-full" />}
               title="General Enquires"
@@ -49,7 +48,6 @@ export default function ContactPage() {
               </p>
             </ContactBox>
             <ContactBox
-              link="#"
               className="bg-white dark:bg-white/10"
               icon={<LucideMapPin className="h-full w-full" />}
               title="Address"
@@ -59,7 +57,6 @@ export default function ContactPage() {
               </p>
             </ContactBox>
             <ContactBox
-              link="#"
               className="bg-white dark:bg-white/10"
               icon={<LucideClock className="h-full w-full" />}
               title="Open Hours"

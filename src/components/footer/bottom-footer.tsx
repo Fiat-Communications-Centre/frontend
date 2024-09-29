@@ -17,7 +17,7 @@ function BottomFooter({ className }: BottomFooterProps) {
       <div className="flex justify-center items-center space-x-2">
         <LucideCopyright size={16} />
         <span className="text-sm md:text-base">
-          FIAT Communications Centre.
+          FIAT Communications & Consultancy Centre.
         </span>
       </div>
 

@@ -64,7 +64,7 @@ export function MainNav({ className }: MainNavProps) {
                           key={itemRoute.title}
                           title={itemRoute.title}
                           href={itemRoute.href}
-                          className="px-4 py-2  capitalize  rounded-md bg-white text-black dark:bg-white/10 dark:text-gray-400 dark:hover:bg-white dark:hover:text-indigo-950"
+                          className="px-4 py-2  capitalize  rounded-md bg-white text-black dark:bg-white/10 dark:text-white dark:hover:bg-white dark:hover:text-gray-900"
                         >
                           {itemRoute.description}
                         </ListItem>

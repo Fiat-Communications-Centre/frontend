@@ -6,14 +6,13 @@ import { Fragment } from "react";
 import PageHeader from "@/components/header/page-header";
 import SimpleNewsletterForm from "@/components/newsletter/simple-newsletter-form";
 import PostCommentForm from "@/components/posts/post-comment-form";
-import RecentPostCard from "@/components/posts/RecentPostCard";
+import RecentPostCard from "@/components/posts/recent-post-card";
 import UserBox from "@/components/shared/user-box";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { cn, sanitizer } from "@/lib/utils";
 import { LucideUser, LucideCalendar } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { buttonVariants } from "@/components/ui/button";
 
 const posts = [
   {

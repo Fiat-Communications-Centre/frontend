@@ -6,6 +6,7 @@ import {
   LucideCog,
   LucideGlobe,
   LucideHelpCircle,
+  LucideInfo,
 } from "lucide-react";
 import IconCard from "../shared/icon-card";
 
@@ -45,21 +46,29 @@ function IntroductionTwo() {
             a significant milestone in 2023 when it was officially launched
           </p>
 
-          <div className="grid  gap-4 grid-cols-2">
+          <div className="grid  gap-4 grid-cols-3">
+          <Link href={"#info"}>
+              <IconCard
+                className="py-2 shadow-sm border-t-4 rounded-none hover:shadow-lg hover:border-t-primary"
+                Icon={() => <LucideInfo />}
+                title="About Us"
+                titleClassName="text-sm sm:text-md xl:text-xl"
+              />
+            </Link>
             <Link href={"/services"}>
               <IconCard
-                className="py-0 shadow-sm border-t-4 rounded-none hover:shadow-lg hover:border-t-primary"
+                className="py-2 shadow-sm border-t-4 rounded-none hover:shadow-lg hover:border-t-primary"
                 Icon={() => <LucideCog />}
                 title="Services"
-                titleClassName="text-md sm:text-xl"
+                titleClassName="text-sm sm:text-md xl:text-xl"
               />
             </Link>
             <Link href={"/contact"}>
               <IconCard
-                className="py-0 shadow-sm border-t-4 rounded-none hover:shadow-lg hover:border-t-primary"
+                className="py-2 shadow-sm border-t-4 rounded-none hover:shadow-lg hover:border-t-primary"
                 Icon={() => <LucideHelpCircle />}
                 title="Contact Us"
-                titleClassName="text-md sm:text-xl"
+                titleClassName="text-sm sm:text-md xl:text-xl"
               />
             </Link>
           </div>

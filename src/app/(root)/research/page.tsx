@@ -1,6 +1,7 @@
 import ContactBox from "@/components/contact/contact-box";
 import ResearchContactForm from "@/components/contact/reaserch-contact-form";
 import PageHeader from "@/components/header/page-header";
+import CustomServiceBox from "@/components/services/custom-service-box";
 import IconCard from "@/components/shared/icon-card";
 import SectionTitle from "@/components/shared/section-title";
 import {
@@ -12,11 +13,6 @@ import {
 import { Metadata } from "next";
 import Image from "next/image";
 import { Fragment } from "react";
-
-export const metadata: Metadata = {
-  title: "Fiat Communications Centre - Research",
-  description: "Unparalleled Quality Communication",
-};
 
 const researchServices = [
   {
@@ -95,6 +91,11 @@ const researchServices = [
       "Analyze publication trends, citation impacts, and the influence of research within specific fields.",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "FIAT Communications & Consultancy Centre - Research",
+  description: "Unparalleled Quality Communication",
+};
 
 export default function ResearchPage() {
   return (
@@ -200,24 +201,7 @@ export default function ResearchPage() {
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {researchServices.map((svc) => (
                 <div key={svc.name} className="pt-6 h-full">
-                  <div className="flow-root rounded-lg bg-gray-50 dark:bg-gray-50/10 px-6 pb-8 h-full">
-                    <div className="-mt-6 h-full">
-                      <div>
-                        <span className="inline-flex items-center justify-center rounded-md bg-primary dark:bg-white/10 p-3 shadow-lg">
-                          <LucideBadgeCheck
-                            className="h-6 w-6 text-white"
-                            aria-hidden="true"
-                          />
-                        </span>
-                      </div>
-                      <h3 className="mt-8 text-lg font-medium tracking-tight text-gray-900 dark:text-white">
-                        {svc.name}
-                      </h3>
-                      <p className="mt-5 text-base text-gray-500">
-                        {svc.description}
-                      </p>
-                    </div>
-                  </div>
+                  <CustomServiceBox serviceDesc={svc.description} serviceName={svc.name} />
                 </div>
               ))}
             </div>

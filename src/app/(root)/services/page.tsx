@@ -1,5 +1,4 @@
 import MainCTA from "@/components/call-to-action/main-cta";
-import ComingSoon from "@/components/coming-soon";
 import PageHeader from "@/components/header/page-header";
 import ServicesList from "@/components/services/services-list";
 import SectionTitle from "@/components/shared/section-title";
@@ -7,7 +6,7 @@ import { Metadata } from "next";
 import { Fragment } from "react";
 
 export const metadata: Metadata = {
-  title: "Fiat Communications Centre - Services",
+  title: "FIAT Communications & Consultancy Centre - Services",
   description: "Unparalleled Quality Communication",
 };
 

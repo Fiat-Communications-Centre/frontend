@@ -63,10 +63,10 @@ export function MobileMainNav({ className }: MainNavProps) {
         closeThreshold={50}
       >
         <DrawerTitle className="text-xs sm:text-sm md:text-base">
-         FIAT Communications Centre
+         FIAT Communications & Consultancy Centre
         </DrawerTitle>
         <DrawerDescription className="hidden">
-         FIAT Communications Centre
+         FIAT Communications & Consultancy Centre
         </DrawerDescription>
         <DrawerTrigger asChild>
           <Button
