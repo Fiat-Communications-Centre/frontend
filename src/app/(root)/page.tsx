@@ -4,66 +4,15 @@ import ContactForm from "@/components/contact/contact-form";
 import FaqsAccordion from "@/components/faqs/faqs-accordion";
 import { HeroCarousel } from "@/components/hero/hero-carousel";
 import IntroductionOne from "@/components/introduction/introduction-one";
-import BlogPost from "@/components/posts/blog-post";
+import FeaturedPosts from "@/components/posts/featured-posts";
 import ServicesList from "@/components/services/services-list";
 import IconCard from "@/components/shared/icon-card";
 import SectionTitle from "@/components/shared/section-title";
 import TestimonialCarousel from "@/components/testimonials/testimonial-carousel";
+import { siteDetails } from "@/config/constants";
+
 import { LucideCog, LucideCompass } from "lucide-react";
 import { Fragment } from "react";
-
-const posts = [
-  {
-    id: "post-1",
-    imageSrc: "/hero-main.jpg",
-    postDate: "Sep 14, 2024",
-    authorName: "Jane Doe",
-    postTitle: "Navigating the Future of Technology",
-    postExcerpt:
-      "Explore how emerging technologies are shaping our world and what it means for the future of businesses.",
-    readMoreUrl: "blog-single.html#post1",
-  },
-  {
-    id: "post-2",
-    imageSrc: "/hero-main.jpg",
-    postDate: "Sep 10, 2024",
-    authorName: "John Smith",
-    postTitle: "The Impact of AI on Everyday Life",
-    postExcerpt:
-      "From home assistants to self-driving cars, see how AI is increasingly integrated into our daily routines.",
-    readMoreUrl: "blog-single.html#post2",
-  },
-  {
-    id: "post-3",
-    imageSrc: "/hero-main.jpg",
-    postDate: "Aug 23, 2024",
-    authorName: "Alice Johnson",
-    postTitle: "Sustainable Practices in Tech Industries",
-    postExcerpt:
-      "Discover how leading tech companies are turning to sustainable practices to reduce their environmental footprint.",
-    readMoreUrl: "blog-single.html#post3",
-  },
-  {
-    id: "post-4",
-    imageSrc: "/hero-main.jpg",
-    postDate: "Aug 15, 2024",
-    authorName: "Mohamed Ali",
-    postTitle: "Blockchain Beyond Cryptocurrency",
-    postExcerpt:
-      "Blockchain technology offers more than just cryptocurrency; learn about its applications in various industries.",
-    readMoreUrl: "blog-single.html#post4",
-  },
-  {
-    id: "post-5",
-    imageSrc: "/hero-main.jpg",
-    postDate: "Jul 30, 2024",
-    authorName: "Linda Brown",
-    postTitle: "Advances in Renewable Energy",
-    postExcerpt:
-      "With advancements in technology, renewable energy is becoming more accessible. Find out what's new and what's next.",
-    readMoreUrl: "blog-single.html#post5",
-  },
-];
 
 export default function HomePage() {
   return (
@@ -92,8 +41,7 @@ export default function HomePage() {
                     <LucideCog className="size-12 md:size-16 lg:size-20" />
                   </div>
                 )}
-                title="Communications
-"
+                title="Communications"
                 description="Elevate your brand with our strategic communication services. Our expertise in marketing strategies, crisis communication, and social media management will help you stand out in the current competivite market"
               />
             </div>
@@ -106,7 +54,7 @@ export default function HomePage() {
                   </div>
                 )}
                 title="Research and Consultancy Services"
-                description="Expert advice and personalized solutions in search and other consulancy areas. We offer tailored consultancy services to meet your unique needs and drive success."
+                description="Expert advice and personalized solutions in search and other consultancy areas. We offer tailored consultancy services to meet your unique needs and drive success."
               />
             </div>
           </div>
@@ -120,7 +68,7 @@ export default function HomePage() {
         />
       </section>
 
-      <section className="container mx-auto py-10 w-full flex flex-col md:flex-row gap-8">
+      <section className="container mx-auto py-10 w-full flex flex-col lg:flex-row gap-8">
         <div className="flex-1 py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <SectionTitle
             className="text-left"
@@ -134,7 +82,7 @@ export default function HomePage() {
         <ContactForm
           title="Get In Touch"
           description="Make A Free Consultant Appointment"
-          className="w-full max-w-lg"
+          className="w-full max-w-full lg:max-w-lg"
         />
       </section>
 
@@ -147,40 +95,18 @@ export default function HomePage() {
           title="Hear from Our Clients"
           subTitle="Real Success Stories"
           descriptionClassName="text-accent/60"
-          description="At FIAT Communications & Consultancy Centre, we are committed to excellence and value the trust our clients place in us. These testimonials reflect the real impact of our services, as we continue to strive for the highest level of client satisfaction. We look forward to making your experience with us equally exceptional."
+          description={`At ${siteDetails.name}, we are committed to excellence and value the trust our clients place in us. These testimonials reflect the real impact of our services, as we continue to strive for the highest level of client satisfaction. We look forward to making your experience with us equally exceptional.`}
         />
         <TestimonialCarousel className="relative container mx-auto z-[2] pl-4" />
       </section>
 
-      {/* articles */}
-      <section className="container mx-auto py-20">
-        <SectionTitle
-          title="Latest Insights and Intelligence on Communication, Consultancy, Research & Tips"
-          subTitle="Stay Updated with Our"
-          description="Dive into our comprehensive articles to explore the latest trends, research, and expert opinions across a variety of industries. "
-        />
-        <div className="px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-          {posts.map((post) => (
-            <BlogPost
-              key={post.id}
-              post={{
-                authorName: post.authorName,
-                postDate: post.postDate,
-                postTitle: post.postTitle,
-                postExcerpt: post.postExcerpt,
-                imageSrc: post.imageSrc,
-                readMoreUrl: post.readMoreUrl,
-              }}
-            />
-          ))}
-        </div>
-      </section>
+      <FeaturedPosts />
 
       <section className="relative w-full py-3 bg-cover bg-[url(/spiral.jpg)] bg-top flex flex-col md:flex-row gap-4 md:gap-8 justify-center items-center">
         <div className="absolute inset-0 bg-black/60 z-[1]"></div>
         <LinkCardCTA
           className="relative bg-primary/10 p-2  flex-row-reverse z-[2] text-white"
-          title="Discover how you can contribute to the growth and success of FIAT Communications & Consultancy Centre through financial support"
+          title={`Discover how you can contribute to the growth and success of ${siteDetails.name} through financial support`}
           imageUrl="/business-up.jpg"
           link={{
             href: "/support",

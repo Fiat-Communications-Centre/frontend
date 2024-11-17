@@ -42,7 +42,8 @@ function MainCTA({ title, description, imageUrl, className }: MainCTAProps) {
               title="General Enquires"
             >
               <p>
-                Phone:  <br /> Email: 
+                Phone:+254-745-757-894
+                <br /> Email: info@fiatcommunicationscentre.com
               </p>
             </ContactBox>
             <ContactBox

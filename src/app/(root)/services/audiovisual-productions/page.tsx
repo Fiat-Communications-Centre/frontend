@@ -3,6 +3,7 @@ import CustomServiceBox from "@/components/services/custom-service-box";
 import ServiceContentWrapper from "@/components/services/service-content-wrapper";
 import IconCard from "@/components/shared/icon-card";
 import SectionTitle from "@/components/shared/section-title";
+import { getPageSEO } from "@/lib/utils";
 import { LucideCog, LucideSpeaker, LucideUsers } from "lucide-react";
 import { Metadata } from "next";
 import React, { Fragment } from "react";
@@ -35,10 +36,13 @@ const audiovisualProductionsServices = [
   },
 ];
 
-export const metadata: Metadata = {
-  title: "Audiovisual Productions - FIAT Communications & Consultancy Centre",
-  description: "We specialize in crafting visually stunning and emotionally compelling audiovisual content that resonates with your audience.",
-};
+export const metadata: Metadata = getPageSEO({
+  title: "Audiovisual Productions",
+  description:
+    "We specialize in crafting visually stunning and emotionally compelling audiovisual content that resonates with your audience.",
+  url: "/services/audiovisual-productions",
+  keywords: audiovisualProductionsServices.map((x) => x.name).join(","),
+});
 
 function AudiovisualProductionsPage() {
   return (
@@ -70,7 +74,7 @@ function AudiovisualProductionsPage() {
             />
           </div>
           <div className="sm:col-span-6 md:col-span-4  col-span-12">
-          <IconCard
+            <IconCard
               className="h-full py-4 shadow-xl border-t-4 rounded-2xl hover:shadow-lg hover:border-t-primary flex-col justify-center items-center"
               Icon={() => <LucideUsers className="size-8" />}
               title="Experienced Creative Team"
@@ -80,7 +84,7 @@ function AudiovisualProductionsPage() {
             />
           </div>
           <div className="sm:col-span-6 md:col-span-4 col-span-12">
-          <IconCard
+            <IconCard
               className="h-full py-4 shadow-xl border-t-4 rounded-2xl hover:shadow-lg hover:border-t-primary flex-col justify-center items-center"
               Icon={() => <LucideCog className="size-8" />}
               title="End-to-End Custom Solutions"
@@ -104,7 +108,6 @@ function AudiovisualProductionsPage() {
             ))}
           </div>
         </div>
-        
       </ServiceContentWrapper>
     </Fragment>
   );

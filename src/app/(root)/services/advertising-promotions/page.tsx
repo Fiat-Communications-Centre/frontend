@@ -2,17 +2,9 @@ import PageHeader from "@/components/header/page-header";
 import CustomServiceBox from "@/components/services/custom-service-box";
 import ServiceContentWrapper from "@/components/services/service-content-wrapper";
 import SectionTitle from "@/components/shared/section-title";
+import { getPageSEO } from "@/lib/utils";
 import { Metadata } from "next";
 import React, { Fragment } from "react";
-
-export const metadata: Metadata = {
-  title: "Advertising & Promotions - FIAT Communications & Consultancy Centre",
-  description: `Amplify Your Brand's Reach and Impact with Expert Advertising and Promotion Strategies`,
-  openGraph: {
-    type: "website",
-    url: `${process.env.CLIENT_BASE_URL}/services/advertising-promotions"`,
-  },
-};
 
 const approaches = [
   {
@@ -41,6 +33,13 @@ const approaches = [
       "We understand the value of your investment. Our team works diligently to optimize your advertising budget, ensuring that you get the most out of every dollar spent.",
   },
 ];
+
+export const metadata: Metadata = getPageSEO({
+  title: "Advertising & Promotions",
+  description: `Amplify Your Brand's Reach and Impact with Expert Advertising and Promotion Strategies`,
+  url: "/services/advertising-promotions",
+  keywords: approaches.map((x) => x.name).join(","),
+});
 
 function AdvertisingPromotionsPage() {
   return (
@@ -88,7 +87,8 @@ function AdvertisingPromotionsPage() {
           Unlock the full potential of your brand with our Advertising and
           Promotion services. Let us help you connect with your audience, drive
           meaningful engagements, and achieve your marketing objectives. Partner
-          with us to make a lasting impact in today&apos;s competitive marketplace.
+          with us to make a lasting impact in today&apos;s competitive
+          marketplace.
         </p>
       </ServiceContentWrapper>
     </Fragment>

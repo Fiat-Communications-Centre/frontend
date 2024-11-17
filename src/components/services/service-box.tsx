@@ -22,6 +22,7 @@ function ServiceBox({
   description,
   className,
   contentClassName,
+  imageUrl,
   hide = [],
 }: ServiceBoxProps) {
   return (
@@ -32,15 +33,15 @@ function ServiceBox({
       )}
     >
       <div className="relative overflow-hidden">
-        {!hide.includes("overlay") && (
+        {/* {!hide.includes("overlay") && (
           <Overlay className="z-1 transition-[0.9s] ease-in-out " />
-        )}
-        {!hide.includes("image") && (
+        )} */}
+        {!hide.includes("image") && imageUrl &&(
           <Image
             loading="lazy"
             width={500}
             height={500}
-            src="/assets/images/service/service-image-2.png"
+            src={imageUrl}
             alt="img"
             className="w-full h-[220px] object-cover"
           />

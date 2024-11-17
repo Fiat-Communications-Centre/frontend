@@ -3,6 +3,7 @@ import PageHeader from "@/components/header/page-header";
 import CustomServiceBox from "@/components/services/custom-service-box";
 import ServiceContentWrapper from "@/components/services/service-content-wrapper";
 import SectionTitle from "@/components/shared/section-title";
+import { getPageSEO } from "@/lib/utils";
 import { Metadata } from "next";
 import React, { Fragment } from "react";
 
@@ -39,12 +40,13 @@ const strategicCommunicationServices = [
   },
 ];
 
-export const metadata: Metadata = {
-  title:
-    "Strategic Organization Communication - FIAT Communications & Consultancy Centre",
+export const metadata: Metadata = getPageSEO({
+  title: "Strategic Organization Communication",
+  url: "services/organizations-communications",
+  keywords: strategicCommunicationServices.map((x) => x.name).join(","),
   description:
     "Enhance your business's communication effectiveness with our strategic organizational communication services",
-};
+});
 
 function OrganizationCommunicationsPage() {
   return (

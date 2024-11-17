@@ -8,11 +8,12 @@ import CompanyHistoryCarousel from "./partials/company-history-carousel";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
 import TeamList from "@/components/team/team-list";
+import { getPageSEO } from "@/lib/utils";
 
-export const metadata: Metadata = {
-  title: "FIAT Communications & Consultancy Centre - About",
-  description: "Unparalleled Quality Communication",
-};
+export const metadata: Metadata = getPageSEO({
+  title: "About",
+  url: "about",
+});
 
 export default function AboutPage() {
   return (
@@ -26,7 +27,7 @@ export default function AboutPage() {
           <IntroductionTwo />
         </div>
       </section>
-      <section className="relative py-20"  id="info">
+      <section className="relative py-20" id="info">
         <SectionTitle
           className="container mx-auto mb-5"
           title="Our Foundation & Future"

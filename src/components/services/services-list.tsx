@@ -25,6 +25,7 @@ function ServicesList({
               title={item.title}
               href={item.href}
               description={item.description}
+              imageUrl={item.imageUrl}
             />
           </div>
         ))}

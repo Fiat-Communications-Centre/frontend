@@ -2,13 +2,17 @@ import MainCTA from "@/components/call-to-action/main-cta";
 import PageHeader from "@/components/header/page-header";
 import ServicesList from "@/components/services/services-list";
 import SectionTitle from "@/components/shared/section-title";
+import { siteDetails } from "@/config/constants";
+import { getPageSEO } from "@/lib/utils";
 import { Metadata } from "next";
 import { Fragment } from "react";
 
-export const metadata: Metadata = {
-  title: "FIAT Communications & Consultancy Centre - Services",
-  description: "Unparalleled Quality Communication",
-};
+export const metadata: Metadata = getPageSEO({
+  title: "Services",
+  url:"services",
+  description:
+    "Explore our wide range of services, tailored to meet your unique needs and drive success",
+});
 
 export default function ServicesPage() {
   return (
@@ -17,7 +21,7 @@ export default function ServicesPage() {
         title="Our Services"
         breadcrumbItems={[{ title: "Our Services", href: "/services" }]}
       />
-     <section className="flex-1 relative px-10 py-10">
+      <section className="flex-1 relative px-10 py-10">
         <SectionTitle
           title="Our Areas of Expertise"
           subTitle="Trusted Solutions"
@@ -28,7 +32,7 @@ export default function ServicesPage() {
       <section className="w-full bg-accent/80 dark:bg-white/10">
         <MainCTA
           title="Do You Have a Project in Mind?"
-          description="Embarking on a new project can be overwhelming, but you don't have to do it alone. At FIAT Communications & Consultancy Centre, we bring your vision to life with precision and passion."
+          description={`Embarking on a new project can be overwhelming, but you don't have to do it alone. At ${siteDetails.name}, we bring your vision to life with precision and passion`}
           imageUrl="/spiral.jpg"
         />
       </section>

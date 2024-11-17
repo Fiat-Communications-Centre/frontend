@@ -11,7 +11,7 @@ import React from "react";
 
 function VisionMission() {
   return (
-    <div className="w-full grid grid-cols-12 gap-8">
+    <div className="w-full grid grid-cols-12 gap-8 px-4">
       <div className="xl:col-span-4  lg:col-span-6 col-span-12 grid gap-4 ">
         <div className="w-full lg:max-w-[370px] m-auto  h-full flex flex-col gap-4 justify-center items-center sm:flex-row lg:flex-col">
           <AspectRatio
@@ -21,8 +21,8 @@ function VisionMission() {
             <Image
               width={300}
               height={300}
-              src={"/hero-main.jpg"}
-              className="w-full h-full object-cover object-center rounded-xl shadow-2xl"
+              src={"/mission.jpg"}
+              className="w-full h-full object-cover aspect-video object-center rounded-xl shadow-2xl"
               alt="Mission"
             />
           </AspectRatio>
@@ -73,7 +73,7 @@ function VisionMission() {
       <div className="xl:col-span-4 col-span-12">
         <div className="w-full xl:max-w-[370px] m-auto  h-full grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
           <IconCard
-            className="h-full py-4 shadow-xl border-t-4 rounded-2xl hover:shadow-lg hover:border-t-primary flex-col justify-center items-center"
+            className="max-sm:order-2  h-full py-4 shadow-xl border-t-4 rounded-2xl hover:shadow-lg hover:border-t-primary flex-col justify-center items-center"
             Icon={() => <LucideGoal className="size-8" />}
             title="Vision"
             description="A reliable unparalleled Centre for diverse Quality Communication"
@@ -83,13 +83,13 @@ function VisionMission() {
 
           <AspectRatio
             ratio={16 / 9}
-            className="size-full rounded-xl"
+            className="size-full rounded-xl max-sm:order-1"
           >
             <Image
               width={300}
               height={300}
-              src={"/hero-main.jpg"}
-              className="w-full h-full object-cover object-center rounded-xl shadow-2xl"
+              src={"/vision.jpg"}
+              className="w-full h-full object-cover  aspect-video object-center rounded-xl shadow-2xl"
               alt="Mission"
             />
           </AspectRatio>

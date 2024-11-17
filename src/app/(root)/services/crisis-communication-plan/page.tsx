@@ -2,19 +2,17 @@ import PageHeader from "@/components/header/page-header";
 import ServiceContentWrapper from "@/components/services/service-content-wrapper";
 import SectionTitle from "@/components/shared/section-title";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { getPageSEO } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
 import React, { Fragment } from "react";
 
-export const metadata: Metadata = {
-  title: "Crisis Communication Plan - FIAT Communications & Consultancy Centre",
+export const metadata: Metadata = getPageSEO({
+  title: "Crisis Communication Plan",
   description:
-    "Revolutionize Parish Data Management with FIAT Communications & Consultancy Centre",
-  openGraph: {
-    type: "website",
-    url: `${process.env.CLIENT_BASE_URL}/services/religious-organizations-database"`,
-  },
-};
+    "Fortify your organization communication strategies and face uncertainties with resilience and authenticity through a well-crafted Crisis Communication Plan (CCP)",
+  url: `/services/crisis-communication-plan`,
+});
 
 function CrisisCommunicationPlanPage() {
   return (
@@ -32,7 +30,7 @@ function CrisisCommunicationPlanPage() {
       <ServiceContentWrapper className="px-4">
         <SectionTitle
           title="Crisis Communication Plan"
-          description="Creative and impactful graphic design solutions to elevate your brand's visual identity."
+          description="Fortify your organization communication strategies and face uncertainties with resilience and authenticity through a well-crafted Crisis Communication Plan (CCP)"
         />
         <p className="text-lg mb-4 leading-6">
           In a world where unexpected challenges can arise, having a
@@ -50,7 +48,10 @@ function CrisisCommunicationPlanPage() {
         </p>
 
         <div className="w-full relative flex flex-col md:flex-row xl:flex-col gap-4">
-          <AspectRatio className="relative max-h-96 flex justify-center items-center" ratio={16/9}>
+          <AspectRatio
+            className="relative max-h-96 flex justify-center items-center"
+            ratio={16 / 9}
+          >
             <Image
               width={1000}
               height={512}

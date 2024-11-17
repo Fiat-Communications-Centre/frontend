@@ -2,19 +2,18 @@ import LinkCardCTA from "@/components/call-to-action/link-card-cta";
 import PageHeader from "@/components/header/page-header";
 import ServiceContentWrapper from "@/components/services/service-content-wrapper";
 import SectionTitle from "@/components/shared/section-title";
+import { siteDetails } from "@/config/constants";
+import { getPageSEO } from "@/lib/utils";
 import { Metadata } from "next";
 import React, { Fragment } from "react";
 
-export const metadata: Metadata = {
-  title:
-    "Religious Organizations Database - FIAT Communications & Consultancy Centre",
-  description:
-    "Revolutionize Parish Data Management with FIAT Communications & Consultancy Centre",
-  openGraph: {
-    type: "website",
-    url: `${process.env.CLIENT_BASE_URL}/services/religious-organizations-database"`,
-  },
-};
+export const metadata: Metadata = getPageSEO({
+  title: "Religious Organizations Database",
+  keywords:
+    "church management system, church website, church database, parish management system",
+  url: "services/religious-organizations-database",
+  description: `Revolutionize Church/Parish Data Management with ${siteDetails.name}`,
+});
 
 function ReligiousOrganizationsDatabasePage() {
   return (

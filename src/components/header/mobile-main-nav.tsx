@@ -34,6 +34,7 @@ import {
 } from "../ui/accordion";
 import TopNav from "./top-nav";
 import { MAIN_NAV_ROUTES } from "@/config/routes";
+import { siteDetails } from "@/config/constants";
 
 interface MainNavProps {
   className?: string;
@@ -49,10 +50,10 @@ export function MobileMainNav({ className }: MainNavProps) {
       )}
     >
       <Image
-        src={"/favicon.ico"}
-        width={64}
-        height={64}
-        className="w-10 object-cover object-center"
+        src={siteDetails.logo.original}
+        width={512}
+        height={512}
+        className="w-[92px] object-cover object-center"
         priority
         alt="Logo"
       />
@@ -82,10 +83,10 @@ export function MobileMainNav({ className }: MainNavProps) {
         <DrawerContent className="h-full w-full overflow-hidden overflow-y-auto rounded-none max-w-sm bg-white dark:bg-black border-l-0 border-t-0 border-b-0 border-r-1 border-r-gray-500">
           <DrawerHeader className="flex justify-between items-center">
             <Image
-              src={"/favicon.ico"}
-              width={64}
-              height={64}
-              className="w-10 object-cover object-center"
+              src={siteDetails.logo.original}
+              width={512}
+              height={512}
+              className="w-[92px] object-cover object-center"
               priority
               alt="Logo"
             />

@@ -10,8 +10,8 @@ interface TextAvatarProps {
 
 function TextAvatar({ src, className, fallback }: TextAvatarProps) {
   return (
-    <Avatar className={cn(className)}>
-      <AvatarImage src={src} />
+    <Avatar className={cn("size-24",className)}>
+      <AvatarImage src={src} width={100} height={100} />
       <AvatarFallback className="bg-white text-primary dark:bg-white/10 dark:text-white font-bold">{fallback}</AvatarFallback>
     </Avatar>
   );

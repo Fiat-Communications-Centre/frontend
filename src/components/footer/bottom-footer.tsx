@@ -1,3 +1,4 @@
+import { siteDetails } from "@/config/constants";
 import { cn } from "@/lib/utils";
 import { LucideCopyright } from "lucide-react";
 import React from "react";
@@ -17,7 +18,7 @@ function BottomFooter({ className }: BottomFooterProps) {
       <div className="flex justify-center items-center space-x-2">
         <LucideCopyright size={16} />
         <span className="text-sm md:text-base">
-          FIAT Communications & Consultancy Centre.
+          {siteDetails.name}
         </span>
       </div>
 

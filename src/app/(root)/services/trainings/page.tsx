@@ -2,6 +2,7 @@ import PageHeader from "@/components/header/page-header";
 import CustomServiceBox from "@/components/services/custom-service-box";
 import ServiceContentWrapper from "@/components/services/service-content-wrapper";
 import SectionTitle from "@/components/shared/section-title";
+import { getPageSEO } from "@/lib/utils";
 import { Metadata } from "next";
 import React, { Fragment } from "react";
 
@@ -38,11 +39,13 @@ const trainingServices = [
   },
 ];
 
-export const metadata: Metadata = {
-  title: "Trainings - FIAT Communications & Consultancy Centre",
+export const metadata: Metadata = getPageSEO({
+  title: "Trainings",
+  keywords: trainingServices.map((x) => x.name).join(","),
+  url: `services/trainings`,
   description:
     "Personalized training programs designed to enhance your skills, knowledge, and confidence in various areas",
-};
+});
 
 function TrainingsPage() {
   return (
@@ -70,7 +73,11 @@ function TrainingsPage() {
           productions, our expert trainers are here to guide you towards
           success.
         </p>
-        <SectionTitle className="my-4" title="Services Offered" titleClassName="!text-2xl" />
+        <SectionTitle
+          className="my-4"
+          title="Services Offered"
+          titleClassName="!text-2xl"
+        />
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2">
           {trainingServices.map((svc) => (
             <div key={svc.name} className="pt-6 h-full">

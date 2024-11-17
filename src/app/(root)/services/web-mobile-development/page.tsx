@@ -3,6 +3,8 @@ import CustomServiceBox from "@/components/services/custom-service-box";
 import ServiceContentWrapper from "@/components/services/service-content-wrapper";
 import IconCard from "@/components/shared/icon-card";
 import SectionTitle from "@/components/shared/section-title";
+import { siteDetails } from "@/config/constants";
+import { getPageSEO } from "@/lib/utils";
 import {
   LucideLayoutTemplate,
   LucideSearchCode,
@@ -34,11 +36,14 @@ const webDevelopmentServices = [
   },
 ];
 
-export const metadata: Metadata = {
-  title: "Web & Mobile Development - FIAT Communications & Consultancy Centre",
-  description: "At FIAT Communications & Consultancy Centre, we specialize in developing custom websites that are not only visually appealing but also highly functional and optimized for performance ",
-};
-
+export const metadata: Metadata = getPageSEO({
+  title: "Web & Mobile Development",
+  keywords:
+    "services, web development, nairobi, website development, ecommerce, e-commerce, business",
+  url: "services/web-mobile-development",
+  description:
+    "At FIAT Communications & Consultancy Centre, we specialize in developing custom websites that are not only visually appealing but also highly functional and optimized for performance ",
+});
 
 function WebMobileDevelopmentPage() {
   return (

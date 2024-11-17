@@ -1,3 +1,4 @@
+import { siteDetails } from "@/config/constants";
 import { cn } from "@/lib/utils";
 import { LucideMail, LucideMapPin } from "lucide-react";
 import React from "react";
@@ -18,7 +19,7 @@ function TopNav({ className }: TopNavProps) {
         <div className="flex items-center space-x-2">
           <LucideMapPin size={16} />
           <span className="text-xs sm:text-sm md:text-base">
-            P. O. Box 21031-00505 Ngong Rd, Nairobi
+            {siteDetails.address}
           </span>
         </div>
       </div>
@@ -26,7 +27,7 @@ function TopNav({ className }: TopNavProps) {
         <div className=" flex items-center space-x-2">
           <LucideMail size={16} />
           <span className="text-xs sm:text-sm md:text-base">
-            info@fiatcommunicationscentre.com
+            {siteDetails.email}
           </span>
         </div>
       </div>

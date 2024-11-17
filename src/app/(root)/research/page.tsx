@@ -4,6 +4,7 @@ import PageHeader from "@/components/header/page-header";
 import CustomServiceBox from "@/components/services/custom-service-box";
 import IconCard from "@/components/shared/icon-card";
 import SectionTitle from "@/components/shared/section-title";
+import { getPageSEO } from "@/lib/utils";
 import {
   LucideBadgeCheck,
   LucideClock,
@@ -92,10 +93,12 @@ const researchServices = [
   },
 ];
 
-export const metadata: Metadata = {
-  title: "FIAT Communications & Consultancy Centre - Research",
-  description: "Unparalleled Quality Communication",
-};
+export const metadata: Metadata = getPageSEO({
+  title: "Research",
+  description: "Empowering Your Research Ambitions",
+  url:"/research",
+  keywords:researchServices.map( x=> x.name).join(',')
+});
 
 export default function ResearchPage() {
   return (

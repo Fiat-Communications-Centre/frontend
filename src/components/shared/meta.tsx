@@ -1,23 +1,41 @@
 import Head from "next/head";
+export type OgTypes =
+  | "website"
+  | "article"
+  | "video.movie"
+  | "video.episode"
+  | "video.tv_show"
+  | "video.other"
+  | "music.song"
+  | "music.album"
+  | "music.playlist"
+  | "music.radio_station"
+  | "profile"
+  | "book"
+  | "product"
+  | "place"
+  | "event"
+  | "restaurant.restaurant"
+  | "business.business";
 export enum OgType {
-    Website = "website",
-    Article = "article",
-    VideoMovie = "video.movie",
-    VideoEpisode = "video.episode",
-    VideoTvShow = "video.tv_show",
-    VideoOther = "video.other",
-    MusicSong = "music.song",
-    MusicAlbum = "music.album",
-    MusicPlaylist = "music.playlist",
-    MusicRadioStation = "music.radio_station",
-    Profile = "profile",
-    Book = "book",
-    Product = "product",
-    Place = "place",
-    Event = "event",
-    Restaurant = "restaurant.restaurant",
-    Business = "business.business",
-  }
+  Website = "website",
+  Article = "article",
+  VideoMovie = "video.movie",
+  VideoEpisode = "video.episode",
+  VideoTvShow = "video.tv_show",
+  VideoOther = "video.other",
+  MusicSong = "music.song",
+  MusicAlbum = "music.album",
+  MusicPlaylist = "music.playlist",
+  MusicRadioStation = "music.radio_station",
+  Profile = "profile",
+  Book = "book",
+  Product = "product",
+  Place = "place",
+  Event = "event",
+  Restaurant = "restaurant.restaurant",
+  Business = "business.business",
+}
 
 export interface MetaProps {
   title: string;
@@ -70,9 +88,6 @@ const Meta: React.FC<MetaProps> = ({
   },
   structuredData = {},
 }) => {
-
-
-    console.log(canonicalUrl)
   return (
     <Head>
       {/* Primary Meta Tags */}
@@ -95,10 +110,16 @@ const Meta: React.FC<MetaProps> = ({
           <meta property="og:site_name" content={og.ogSiteName} />
           <meta property="og:locale" content={og.ogLocale} />
           {og.ogPublishedTime && (
-            <meta property="article:published_time" content={og.ogPublishedTime} />
+            <meta
+              property="article:published_time"
+              content={og.ogPublishedTime}
+            />
           )}
           {og.ogModifiedTime && (
-            <meta property="article:modified_time" content={og.ogModifiedTime} />
+            <meta
+              property="article:modified_time"
+              content={og.ogModifiedTime}
+            />
           )}
         </>
       )}
@@ -107,10 +128,15 @@ const Meta: React.FC<MetaProps> = ({
       {twitter && (
         <>
           <meta name="twitter:title" content={twitter.twitterTitle} />
-          <meta name="twitter:description" content={twitter.twitterDescription} />
+          <meta
+            name="twitter:description"
+            content={twitter.twitterDescription}
+          />
           <meta name="twitter:image" content={twitter.twitterImage} />
           <meta name="twitter:card" content={twitter.twitterCard} />
-          {twitter.twitterSite && <meta name="twitter:site" content={twitter.twitterSite} />}
+          {twitter.twitterSite && (
+            <meta name="twitter:site" content={twitter.twitterSite} />
+          )}
         </>
       )}
 

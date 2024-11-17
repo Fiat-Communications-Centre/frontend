@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
+import { cn, getPageSEO } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import { Suspense } from "react";
+import SectionLoader from "@/components/shared/section-loader";
+import { siteDetails } from "@/config/constants";
 const inter = Inter({
   weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin", "latin-ext"],
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "FIAT Communications & Consultancy Centre",
-  description: "Unparalleled Quality Communication",
-};
+export const metadata: Metadata = getPageSEO({
+  title: "Home",
+  url:""
+});
 
 export default function RootLayout({
   children,
@@ -38,7 +41,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Suspense fallback={<SectionLoader />}>{children}</Suspense>
+
           <Toaster />
         </ThemeProvider>
       </body>
