@@ -24,6 +24,8 @@ import {
   FormMessage,
 } from "../ui/form";
 import { z } from "zod";
+import { contactService } from "@/services/contact-service";
+import { Loader2 } from "lucide-react";
 
 interface ContactFormProps {
   className?: string;
@@ -41,11 +43,11 @@ const FormSchema = z.object({
   phone: z.string().min(10, {
     message: "Phone is required",
   }),
-  subject: z.string().min(3, {
-    message: "Subject is required",
+  subject: z.string({ required_error: "Subject is required" }).min(10, {
+    message: "Subject must be at least 10 characters",
   }),
-  message: z.string().min(3, {
-    message: "Message is required",
+  message: z.string({ required_error: "Message is required" }).min(140, {
+    message: "Message must be at least 140 characters",
   }),
 });
 
@@ -63,15 +65,25 @@ function ContactForm({ className, title, description }: ContactFormProps) {
     },
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+    try {
+      const res = await contactService.createContact(data);
+
+      toast({
+        title: "Success",
+        description:
+          res.message ?? "Your contact request was submitted successfully",
+      });
+
+      form.reset();
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description:
+          (error as any).message ?? "Failed to submit request. Try again later",
+      });
+    }
   }
 
   return (
@@ -178,11 +190,9 @@ function ContactForm({ className, title, description }: ContactFormProps) {
                   <FormControl>
                     <Textarea
                       id="message"
-                      rows={4}
+                      rows={10}
                       {...field}
-                      className="h-14"
                       placeholder="Describe your enquiry"
-                      required
                     />
                   </FormControl>
                   <FormMessage />
@@ -191,7 +201,14 @@ function ContactForm({ className, title, description }: ContactFormProps) {
             />
           </CardContent>
           <CardFooter>
-            <Button type="submit" className="w-full">
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={form.formState.isSubmitting}
+            >
+              {form.formState.isSubmitting ? (
+                <Loader2 className="animate-spin mr-2" size={16} />
+              ) : null}
               Contact US
             </Button>
           </CardFooter>

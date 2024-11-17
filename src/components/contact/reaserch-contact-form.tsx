@@ -18,12 +18,23 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "../ui/form";
 import { z } from "zod";
+import { researchService } from "@/services/research-service";
+import { Loader2 } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+import { researchFields } from "@/config/constants";
 
 interface ResearchContactFormProps {
   className?: string;
@@ -41,19 +52,18 @@ const FormSchema = z.object({
   phone: z.string().min(10, {
     message: "Phone is required",
   }),
-  projectTitle: z.string().min(3, {
+  title: z.string().min(3, {
     message: "Project title is required",
   }),
-  researchArea: z.string().min(3, {
+  area: z.string().min(3, {
     message: "Research area is required",
   }),
-  projectDescription: z.string().min(3, {
-    message: "Description is required",
-  }),
-  projectStatus: z.string().min(3, {
-    message: "Project status is required",
-  }),
-  budget: z
+  description: z
+    .string({ required_error: "Description is required" })
+    .min(140, {
+      message: "Description must be at least 140 characters",
+    }),
+  budget: z.coerce
     .number()
     .min(0, {
       message: "Invalid project budget",
@@ -76,20 +86,37 @@ function ResearchContactForm({
       name: "",
       email: "",
       phone: "",
-      projectTitle: "",
-      projectDescription: "",
+      title: "",
+      area: "General Research",
+      description: "",
+      budget: 0,
+      attachments: [],
     },
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+    try {
+      if (data.attachments) {
+        data.attachments = Array.from(data.attachments);
+      }
+
+      const res = await researchService.createResearchRequest(data);
+
+      toast({
+        title: "Success",
+        description:
+          res.message ?? "Your research request was submitted successfully",
+      });
+
+      form.reset();
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description:
+          (error as any).message ?? "Failed to submit request. Try again later",
+      });
+    }
   }
 
   return (
@@ -172,13 +199,13 @@ function ResearchContactForm({
             />
             <FormField
               control={form.control}
-              name="projectTitle"
+              name="title"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-lg">Project Title</FormLabel>
                   <FormControl>
                     <Input
-                      id="projectTitle"
+                      id="title"
                       type="text"
                       placeholder="Title of your project"
                       {...field}
@@ -193,37 +220,28 @@ function ResearchContactForm({
 
             <FormField
               control={form.control}
-              name="researchArea"
+              name="area"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-lg">Research Area</FormLabel>
-                  <FormControl>
-                    <Input
-                      id="researchArea"
-                      type="text"
-                      placeholder="Title of your project"
-                      {...field}
-                      className="h-14"
-                      list="research-fields"
-                    />
-                  </FormControl>
-                  <datalist id="research-fields">
-                    <option value="Medical and Health Sciences" />
-                    <option value="Environmental Science" />
-                    <option value="Social Sciences" />
-                    <option value="Business and Management" />
-                    <option value="Education" />
-                    <option value="Engineering and Technology" />
-                    <option value="Economics" />
-                    <option value="Information Technology and Computer Science" />
-                    <option value="Law and Legal Studies" />
-                    <option value="Humanities" />
-                    <option value="Agricultural and Food Sciences" />
-                    <option value="Physics and Mathematics" />
-                    <option value="Biological Sciences" />
-                    <option value="Chemistry" />
-                    <option value="Environmental and Energy Studies" />
-                  </datalist>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select research area" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {researchFields.map((item) => (
+                        <SelectItem key={item.value} value={item.value}>
+                          {item.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+
                   <FormMessage />
                 </FormItem>
               )}
@@ -231,13 +249,13 @@ function ResearchContactForm({
 
             <FormField
               control={form.control}
-              name="projectDescription"
+              name="description"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-lg">Project Description</FormLabel>
                   <FormControl>
                     <Textarea
-                      id="projectDescription"
+                      id="description"
                       rows={7}
                       {...field}
                       className="mn-h-14"
@@ -280,8 +298,20 @@ function ResearchContactForm({
                 <FormItem>
                   <FormLabel className="text-lg">Project Attachments</FormLabel>
                   <FormControl>
-                    <Input id="attachments" type="file" multiple {...field} />
+                    <Input
+                      id="attachments"
+                      type="file"
+                      accept=".pdf, .png, .jpeg, .jpg"
+                      multiple
+                      onChange={(e) =>
+                        form.setValue(
+                          "attachments",
+                          Array.from(e.target.files ?? [])
+                        )
+                      }
+                    />
                   </FormControl>
+                  <FormDescription>Please upload <strong>.pdf, .png, .jpeg, .jpg</strong> files only</FormDescription>
 
                   <FormMessage />
                 </FormItem>
@@ -289,7 +319,14 @@ function ResearchContactForm({
             />
           </CardContent>
           <CardFooter>
-            <Button type="submit" className="w-full">
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={form.formState.isSubmitting}
+            >
+              {form.formState.isSubmitting ? (
+                <Loader2 className="animate-spin mr-2" size={16} />
+              ) : null}
               Ready to Submit?
             </Button>
           </CardFooter>
