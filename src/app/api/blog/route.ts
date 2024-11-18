@@ -1,11 +1,9 @@
 import {backendApiService} from "@/services/base-service";
-import { ApiResponse } from "@/types/common";
 import { PostData } from "@/types/post";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   try {
-    console.log("post api hit")
     const urlSearchParams = req.nextUrl.searchParams;
     const params = Object.fromEntries(urlSearchParams.entries());
 
