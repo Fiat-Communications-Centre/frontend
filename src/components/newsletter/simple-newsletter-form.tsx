@@ -32,12 +32,8 @@ export default function SimpleNewsletterForm() {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
+      title: "Coming Soon",
+      description: "Thank you for your interest to join our newsletter.",
     });
   }
   return (
