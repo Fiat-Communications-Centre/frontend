@@ -12,6 +12,8 @@ export interface UserData {
   title: string;
   bio: string;
   photo: MediaData | null;
+  isTeamMember: boolean;
+  featured: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
