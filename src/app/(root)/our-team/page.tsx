@@ -5,11 +5,13 @@ import TeamList from "@/components/team/team-list";
 import { Metadata } from "next";
 import { Fragment } from "react";
 import VisionMission from "../about/partials/vision-mission";
+import { getPageSEO } from "@/lib/utils";
 
-export const metadata: Metadata = {
-  title: "Fiat Communications Centre - Our Team",
-  description: "Unparalleled Quality Communication",
-};
+export const metadata: Metadata = getPageSEO({
+  title: "Our Team",
+  description: "Meet the Experts. Passionate Personalities, Versatile Brains Team Members",
+  url:"/our-team"
+});
 
 export default function OurTeamPage() {
   return (

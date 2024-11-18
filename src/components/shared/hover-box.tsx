@@ -25,7 +25,7 @@ function HoverBox({
       <HoverCardTrigger asChild>
         <Trigger />
       </HoverCardTrigger>
-      <HoverCardContent className={cn("min-w-40", className)}>
+      <HoverCardContent className={cn("min-w-40 bg-white text-gray-900 dark:bg-black/80 dark:text-gray-200", className)}>
         {children}
       </HoverCardContent>
     </HoverCard>

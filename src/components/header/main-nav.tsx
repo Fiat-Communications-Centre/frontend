@@ -14,6 +14,8 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { MAIN_NAV_ROUTES } from "@/config/routes";
+import Image from "next/image";
+import { siteDetails } from "@/config/constants";
 
 interface MainNavProps {
   className?: string;
@@ -31,12 +33,17 @@ export function MainNav({ className }: MainNavProps) {
           <NavigationMenuItem>
             <Link href="/" legacyBehavior passHref>
               <NavigationMenuLink
-                className={cn(
-                  navigationMenuTriggerStyle(),
-                  "px-4 py-2  capitalize  rounded-full bg-white text-black dark:bg-white/10 dark:text-gray-400 dark:hover:bg-white dark:hover:text-indigo-950"
-                )}
+                className={cn(navigationMenuTriggerStyle(), "w-[192px] h-auto dark:bg-white/10 dark:text-white dark:hover:bg-white dark:hover:text-gray-900")}
               >
-                Home
+                <Image
+                  src={siteDetails.logo.original}
+                  height={512}
+                  width={512}
+                  alt={"Logo"}
+                  className=" object-cover aspect-[16/9] bg-transparent"
+                  priority
+                  unoptimized={true}
+                />
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
@@ -64,7 +71,7 @@ export function MainNav({ className }: MainNavProps) {
                           key={itemRoute.title}
                           title={itemRoute.title}
                           href={itemRoute.href}
-                          className="px-4 py-2  capitalize  rounded-md bg-white text-black dark:bg-white/10 dark:text-gray-400 dark:hover:bg-white dark:hover:text-indigo-950"
+                          className="px-4 py-2  capitalize  rounded-md bg-white text-black dark:bg-white/10 dark:text-white dark:hover:bg-white dark:hover:text-gray-900"
                         >
                           {itemRoute.description}
                         </ListItem>

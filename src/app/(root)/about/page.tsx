@@ -8,11 +8,12 @@ import CompanyHistoryCarousel from "./partials/company-history-carousel";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import Image from "next/image";
 import TeamList from "@/components/team/team-list";
+import { getPageSEO } from "@/lib/utils";
 
-export const metadata: Metadata = {
-  title: "Fiat Communications Centre - About",
-  description: "Unparalleled Quality Communication",
-};
+export const metadata: Metadata = getPageSEO({
+  title: "About",
+  url: "about",
+});
 
 export default function AboutPage() {
   return (
@@ -26,7 +27,7 @@ export default function AboutPage() {
           <IntroductionTwo />
         </div>
       </section>
-      <section className="relative py-20">
+      <section className="relative py-20" id="info">
         <SectionTitle
           className="container mx-auto mb-5"
           title="Our Foundation & Future"
@@ -49,7 +50,7 @@ export default function AboutPage() {
 
       <section className="bg-gray-50 dark:bg-white/10 py-10">
         <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
-          <div className="space-y-2">
+          <div className="space-y-2 px-4">
             <SectionTitle
               className="container mx-auto mb-5 text-left"
               title="in pursuit of excellence"
@@ -91,14 +92,14 @@ export default function AboutPage() {
               </p>
             </article>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-2 px-4">
             <AspectRatio ratio={16 / 9} className="w-full">
               <iframe
                 width="550"
                 height="309"
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/WjyR2RlFetI"
-                title="FIAT COMMUNICATIONS CENTRE"
+                title="FIAT Communications & Consultancy Centre"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
@@ -126,7 +127,7 @@ export default function AboutPage() {
 
       <section className="py-10">
         <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
-          <div className="space-y-2">
+          <div className="space-y-2 px-4">
             <SectionTitle
               className="container mx-auto mb-5 text-left"
               title="Who Owns FIAT Communications & Consultancy Centre?"

@@ -3,14 +3,16 @@ import ContactBox from "@/components/contact/contact-box";
 import ContactForm from "@/components/contact/contact-form";
 import PageHeader from "@/components/header/page-header";
 import SectionTitle from "@/components/shared/section-title";
+import { getPageSEO } from "@/lib/utils";
 import { LucideClock, LucideHelpCircle, LucideMapPin } from "lucide-react";
 import { Metadata } from "next";
 import { Fragment } from "react";
 
-export const metadata: Metadata = {
-  title: "Fiat Communications Centre - Contact",
-  description: "Unparalleled Quality Communication",
-};
+export const metadata: Metadata = getPageSEO({
+  title: "Contact",
+  description: "Contact us - Make a free consultant appointment today and reach our Expert Team",
+  url:"/contact"
+});
 
 export default function ContactPage() {
   return (
@@ -39,17 +41,16 @@ export default function ContactPage() {
           />
           <div className="grid gap-4">
             <ContactBox
-              link="#"
               className="bg-white dark:bg-white/10"
               icon={<LucideHelpCircle className="h-full w-full" />}
               title="General Enquires"
             >
               <p>
-                Phone: <br /> Email:
+                Phone:+254-745-757-894
+                <br /> Email: info@fiatcommunicationscentre.com
               </p>
             </ContactBox>
             <ContactBox
-              link="#"
               className="bg-white dark:bg-white/10"
               icon={<LucideMapPin className="h-full w-full" />}
               title="Address"
@@ -59,7 +60,6 @@ export default function ContactPage() {
               </p>
             </ContactBox>
             <ContactBox
-              link="#"
               className="bg-white dark:bg-white/10"
               icon={<LucideClock className="h-full w-full" />}
               title="Open Hours"

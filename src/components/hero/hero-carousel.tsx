@@ -12,10 +12,11 @@ import {
 import HeroItem, { HeroItemProps } from "./hero-item";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { siteDetails } from "@/config/constants";
 
 const HERO_ITEMS: HeroItemProps[] = [
   {
-    title: "FIAT Communications  & Consultancy Centre",
+    title: siteDetails.name,
     subTitle: "Unparalleled Quality Communications (Colossians 4:6)",
     description:
       "FIAT Communications  & Consultancy Centre is a one-stop, state-of-the art entity whose aim is to provide stellar customized service to individuals or Corporate in areas not limited to communication, research, business, consultancies and marketing.",
@@ -31,7 +32,7 @@ const HERO_ITEMS: HeroItemProps[] = [
         href: "/services",
       },
     ],
-    imageUrl: "/hero-main.jpg",
+    imageUrl: "/main-2.jpg",
   },
   {
     title: "Research and Consultancy Services",
@@ -49,6 +50,7 @@ const HERO_ITEMS: HeroItemProps[] = [
         href: "/contact",
       },
     ],
+    imageUrl: "/research-carousel.jpg",
   },
   {
     title: "Audiovisual Productions",
@@ -66,6 +68,7 @@ const HERO_ITEMS: HeroItemProps[] = [
         href: "/contact",
       },
     ],
+    imageUrl: "/audio-visual-carousel.jpg",
   },
   {
     title: "Graphics Design",
@@ -83,6 +86,7 @@ const HERO_ITEMS: HeroItemProps[] = [
         href: "/contact",
       },
     ],
+    imageUrl: "/graphics-design.jpg",
   },
   {
     title: "Web & Mobile Development",
@@ -100,6 +104,7 @@ const HERO_ITEMS: HeroItemProps[] = [
         href: "/contact",
       },
     ],
+    imageUrl: "/web-dev.jpg",
   },
   {
     title: "Strategic Organizations Communication",
@@ -117,6 +122,7 @@ const HERO_ITEMS: HeroItemProps[] = [
         href: "/contact",
       },
     ],
+    imageUrl: "/strategy.jpg",
   },
   {
     title: "Trainings",
@@ -134,6 +140,7 @@ const HERO_ITEMS: HeroItemProps[] = [
         href: "/contact",
       },
     ],
+    imageUrl: "/training.jpg",
   },
   {
     title: "Advertising & Promotions",
@@ -151,6 +158,7 @@ const HERO_ITEMS: HeroItemProps[] = [
         href: "/contact",
       },
     ],
+    imageUrl: "/adverts.jpg",
   },
   {
     title: "Religious Organization Databases",
@@ -168,6 +176,7 @@ const HERO_ITEMS: HeroItemProps[] = [
         href: "/contact",
       },
     ],
+    imageUrl: "/computer.jpg",
   },
   {
     title: "Crisis Communication Plan",
@@ -185,6 +194,7 @@ const HERO_ITEMS: HeroItemProps[] = [
         href: "/contact",
       },
     ],
+    imageUrl: "/plan.jpg",
   },
 ];
 export function HeroCarousel({ className }: { className?: string }) {
@@ -193,7 +203,7 @@ export function HeroCarousel({ className }: { className?: string }) {
       opts={{
         align: "start",
         loop: true,
-        watchDrag: false,
+        watchDrag: true,
       }}
       plugins={[
         Autoplay({
@@ -212,17 +222,16 @@ export function HeroCarousel({ className }: { className?: string }) {
             <div className="relative flex-1 flex justify-center items-center min-h-screen ">
               {item.imageUrl && (
                 <>
-                 <Image
-                  src={item.imageUrl}
-                  height={1920}
-                  width={1280}
-                  alt={item.title}
-                  className="absolute inset-0 -z-[1] w-full h-full object-cover aspect-[16/9]"
-                  priority
-                />
-                <div className="absolute inset-0 z-[0] w-full h-full bg-black/50"></div>
+                  <Image
+                    src={item.imageUrl}
+                    height={1920}
+                    width={1280}
+                    alt={item.title}
+                    className="absolute inset-0 -z-[1] w-full h-full object-cover aspect-[16/9]"
+                    priority
+                  />
+                  <div className="absolute inset-0 z-[0] w-full h-full bg-black/50"></div>
                 </>
-               
               )}
               <HeroItem
                 title={item.title}
@@ -236,8 +245,11 @@ export function HeroCarousel({ className }: { className?: string }) {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+
+      <div className="absolute left-1/2 bottom-10 flex justify-center items-center gap-4">
+        <CarouselPrevious className="size-8 bg-white/10 text-white/60 hover:bg-white/100 hover:text-primary font-bold z-50 flex justify-center" />
+        <CarouselNext className="size-8 bg-white/10 text-white/60 hover:bg-white/100 hover:text-primary font-bold z-50 flex justify-center" />
+      </div>
     </Carousel>
   );
 }

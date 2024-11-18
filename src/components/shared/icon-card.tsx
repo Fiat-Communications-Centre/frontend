@@ -12,7 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 
 interface IconCardProps {
-  Icon: React.ComponentType<any>;
+  Icon?: React.ComponentType<any>;
   className?: string;
   title: string;
   titleClassName?: string;
@@ -37,9 +37,9 @@ function IconCard({
         className
       )}
     >
-      <Icon />
+      {Icon && <Icon />}
       <Card className="bg-transparent border-none rounded-none shadow-none p-0">
-        <CardHeader>
+        <CardHeader className="p-0">
           <CardTitle className={cn("text-primary text-2xl", titleClassName)}>
             {title}
           </CardTitle>

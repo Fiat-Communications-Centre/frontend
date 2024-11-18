@@ -33,10 +33,10 @@ const faqs = [
 ];
 function FaqsAccordion() {
   return (
-    <Accordion type="single" collapsible className="w-full">
+    <Accordion type="single" defaultValue="faq-0" collapsible className="w-full text-left">
       {faqs.map((item, index) => (
         <AccordionItem key={`faq-${index}`} value={`faq-${index}`}>
-          <AccordionTrigger className="text-primary font-bold text-lg">{item.question}</AccordionTrigger>
+          <AccordionTrigger className="text-primary font-bold text-lg text-left">{item.question}</AccordionTrigger>
           <AccordionContent className="text-sm">{item.answer}</AccordionContent>
         </AccordionItem>
       ))}

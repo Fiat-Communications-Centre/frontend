@@ -6,6 +6,7 @@ import {
   LucideCog,
   LucideGlobe,
   LucideHelpCircle,
+  LucideInfo,
 } from "lucide-react";
 import IconCard from "../shared/icon-card";
 
@@ -20,9 +21,10 @@ function IntroductionTwo() {
             title="FIAT Communications & Consultancy Centre"
             subTitle="Who We Are"
             description="Unparalleled Quality Communication (Colossians 4:6)"
+            titleClassName="max-sm:text-2xl"
             descriptionClassName="text-lg italic font-semibold text-gray-400"
           />
-          <div className="flex justify-start items-center space-x-3 py-2 px-6 rounded-full ring-1 ring-primary w-max">
+          <div className="flex justify-start items-center space-x-3 py-2 px-6 rounded-full ring-1 ring-primary w-full md:w-max">
             <LucideGlobe size={64} className="text-primary" />
             <h2 className="font-bold">
               Since 2013, <br /> Kenya, Uganda, Tanzania, and USA
@@ -45,21 +47,29 @@ function IntroductionTwo() {
             a significant milestone in 2023 when it was officially launched
           </p>
 
-          <div className="grid  gap-4 grid-cols-2">
+          <div className="flex justify-around flex-wrap gap-4 mb-2">
+          <Link href={"#info"}>
+              <IconCard
+                className="max-sm:px-0 py-2 shadow-sm border-t-4 rounded-none hover:shadow-lg hover:border-t-primary"
+                Icon={() => <LucideInfo className="max-md:size-5"/>}
+                title="About Us"
+                titleClassName="text-xs sm:text-md xl:text-xl"
+              />
+            </Link>
             <Link href={"/services"}>
               <IconCard
-                className="py-0 shadow-sm border-t-4 rounded-none hover:shadow-lg hover:border-t-primary"
-                Icon={() => <LucideCog />}
+                className="max-sm:px-0 py-2 shadow-sm border-t-4 rounded-none hover:shadow-lg hover:border-t-primary"
+                Icon={() => <LucideCog className="max-md:size-5"/>}
                 title="Services"
-                titleClassName="text-md sm:text-xl"
+                titleClassName="text-xs sm:text-md xl:text-xl"
               />
             </Link>
             <Link href={"/contact"}>
               <IconCard
-                className="py-0 shadow-sm border-t-4 rounded-none hover:shadow-lg hover:border-t-primary"
-                Icon={() => <LucideHelpCircle />}
+                className="max-sm:px-0 py-2 shadow-sm border-t-4 rounded-none hover:shadow-lg hover:border-t-primary"
+                Icon={() => <LucideHelpCircle className="max-md:size-5"/>}
                 title="Contact Us"
-                titleClassName="text-md sm:text-xl"
+                titleClassName="text-xs sm:text-md xl:text-xl"
               />
             </Link>
           </div>
@@ -71,8 +81,8 @@ function IntroductionTwo() {
             <Image
               width={700}
               height={700}
-              src="/assets/images/about/about-5.jpg"
-              className="w-full h-full object-cover"
+              src="/main.jpg"
+              className="w-full h-full object-cover aspect-video"
               alt="image"
             />
           </div>
@@ -80,8 +90,8 @@ function IntroductionTwo() {
             <Image
               width={600}
               height={600}
-              src="/assets/images/projects/project-detail-img-2.jpg"
-              className="w-full h-full object-cover"
+              src="/business-up.jpg"
+              className="w-full h-full object-cover aspect-video"
               alt="image"
             />
           </div>

@@ -7,20 +7,23 @@ import {
   BreadcrumbLink,
   BreadcrumbSeparator,
 } from "../ui/breadcrumb";
+import { cn } from "@/lib/utils";
 
 interface PageHeaderProps {
   title: string;
   backgroundImageUrl?: string;
-  breadcrumbItems?: {
+  breadcrumbItems?: ({
     title: string;
     href: string;
-  }[];
+  } | null)[];
 }
 function PageHeader({
   title,
   backgroundImageUrl = "/testimonials.jpg",
   breadcrumbItems,
 }: PageHeaderProps) {
+  const items = breadcrumbItems?.filter((x) => x !== null);
+
   return (
     <div
       className={`relative max-md:min-h-[auto] min-h-80 py-24 overflow-hidden items-center bg-cover bg-center`}
@@ -31,7 +34,7 @@ function PageHeader({
         <div className="container mx-auto">
           <div className="flex flex-col justify-center items-center">
             <div className="relative mb-20">
-              <div className="text-4xl md:text-6xl lg:text-8xl text-white">
+              <div className="text-2xl md:text-4xl lg:text-6xl text-white">
                 {title}
               </div>
             </div>
@@ -47,18 +50,21 @@ function PageHeader({
                       Home
                     </BreadcrumbLink>
                   </BreadcrumbItem>
-                  {breadcrumbItems.map((item) => (
-                    <Fragment key={item.title}>
+                  {items?.map((item, index) => (
+                    <Fragment key={item?.title}>
                       <BreadcrumbSeparator>
                         <Slash />
                       </BreadcrumbSeparator>
 
-                      <BreadcrumbItem className="font-semibold uppercase  ">
+                      <BreadcrumbItem className="font-semibold capitalize text-gray-400 hover:text-white last:text-white ">
                         <BreadcrumbLink
-                          href={item.href}
-                          className="text-gray-400 hover:text-white/80 last:!text-white"
+                          href={item?.href}
+                          className={cn(
+                            "max-sm:text-xs text-gray-400 hover:text-white",
+                            index === items.length - 1 ? "text-white" : ""
+                          )}
                         >
-                          {item.title}
+                          {item?.title}
                         </BreadcrumbLink>
                       </BreadcrumbItem>
                     </Fragment>

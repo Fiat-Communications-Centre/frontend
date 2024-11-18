@@ -15,22 +15,18 @@ import { cn } from "@/lib/utils";
 import { AspectRatio } from "../ui/aspect-ratio";
 import HoverBox from "../shared/hover-box";
 import UserBox from "../shared/user-box";
+import { PostData } from "@/types/post";
+import { formatDate } from "date-fns";
 
 interface BlogPostProps {
   className?: string;
-  post: {
-    imageSrc: string;
-    postDate: string;
-    authorName: string;
-    postTitle: string;
-    postExcerpt: string;
-    readMoreUrl: string;
-  };
+  readMoreUrl: string;
+  post:PostData
 }
 
 function BlogPost({
   className,
-  post: { imageSrc, postDate, authorName, postTitle, postExcerpt, readMoreUrl },
+  readMoreUrl, post,
 }: BlogPostProps) {
   return (
     <Card className={cn("bg-white text-black dark:bg-white/10 dark:text-slate-400 dark:border-slate-600", className)}>
@@ -39,7 +35,7 @@ function BlogPost({
           <Image
             width={500}
             height={500}
-            src={imageSrc}
+            src={post.thumbnail.url}
             alt="img"
             className="w-full h-full object-cover max-h-full max-w-full rounded-t-lg"
           />
@@ -51,29 +47,29 @@ function BlogPost({
             trigger={() => (
               <li className="flex justify-center items-center space-x-1">
                 <LucideUser className="size-5" />
-                <span className="text-sm">{authorName}</span>
+                <span className="text-sm">{post.author.name}</span>
               </li>
             )}
           >
             <UserBox
               user={{
-                name: authorName,
-                bio: "some bio here",
+                name: post.author.name,
+                bio: post.author.bio,
                 avatarFallback: "SR",
-                role: "Some role",
+                role: post.author.title,
               }}
             />
           </HoverBox>
 
           <li className="flex justify-center items-center space-x-1 border-l border-gray-200 pl-2">
             <LucideCalendar className="size-5" />
-            <span className="text-sm">{postDate}</span>
+            <span className="text-sm">{formatDate(post.createdAt,'dd-MM-yyy')}</span>
           </li>
         </ul>
         <CardTitle className="text-primary text-xl mb-3 hover:underline underline-offset-8">
-          <Link href={readMoreUrl}>{postTitle}</Link>
+          <Link href={readMoreUrl}>{post.title}</Link>
         </CardTitle>
-        <CardDescription>{postExcerpt}</CardDescription>
+        <CardDescription>{post.excerpt.slice(0.300)}...</CardDescription>
       </CardContent>
       <CardFooter className="flex justify-center items-center">
         <Link

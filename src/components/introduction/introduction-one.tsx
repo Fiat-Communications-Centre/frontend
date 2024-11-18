@@ -13,7 +13,7 @@ function IntroductionOne() {
             <Image
               width={700}
               height={700}
-              src="/assets/images/about/about-5.jpg"
+              src="/main.jpg"
               className="w-full h-full object-cover"
               alt="image"
             />
@@ -22,7 +22,7 @@ function IntroductionOne() {
             <Image
               width={600}
               height={600}
-              src="/assets/images/projects/project-detail-img-2.jpg"
+              src="/business-up.jpg"
               className="w-full h-full object-cover"
               alt="image"
             />
