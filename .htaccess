@@ -1,0 +1,33 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Maintenance Mode
+    # Uncomment the following lines to enable maintenance mode
+    # Redirect all traffic to the maintenance page
+    # RewriteCond %{REQUEST_URI} !^/maintenance\.html$ [NC]
+    # RewriteRule ^(.*)$ /maintenance.html [R=302,L]
+    
+    
+    # Normal Rewrite Rules for Next.js
+    RewriteRule ^_next/.*$ - [L]
+     # Allow access to the public folder
+    RewriteRule ^public/ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+    RewriteRule ^.*$ /server.js [L]
+</IfModule>
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/kcfaccad/dev.fiatcommunicationscentre.com"
+PassengerBaseURI "/"
+PassengerNodejs "/home/kcfaccad/nodevenv/dev.fiatcommunicationscentre.com/20/bin/node"
+PassengerAppType node
+PassengerStartupFile server.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION BEGIN
+<IfModule Litespeed>
+SetEnv CLIENT_BASE_URL https://dev.fiatcommunicationscentre.com
+SetEnv NODE_ENV production
+</IfModule>
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END

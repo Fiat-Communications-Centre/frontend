@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "npm run copy-static",
+    "copy-static": "mkdir -p .next/standalone/public && cp -r public/* .next/standalone/public/ && mkdir -p .next/standalone/.next/static && cp -r .next/static/* .next/standalone/.next/static/"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
