@@ -1,16 +1,12 @@
-name: Build and Deploy Next.js Site to Server
+name: Build and Deploy Next.js Site via FTP
 
 on:
   # Trigger on pushes to the "development" branch
   push:
-    branches: ["deploy"]
+    branches: ["development"]
 
   # Allow manual triggers from the Actions tab
   workflow_dispatch:
-
-# Configure permissions for deployment
-permissions:
-  contents: read
 
 jobs:
   build:
@@ -44,7 +40,7 @@ jobs:
       - name: Archive build artifacts
         run: tar -czvf standalone-build.tar.gz -C .next/standalone .
 
-      # Step 7: Upload the artifact for deployment
+      # Step 7: Upload artifact for deployment
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -61,15 +57,18 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: standalone-build
-          path: ./standalone
 
-      # Step 2: Transfer files to the server via FTP/SFTP
-      - name: Deploy to Server
-        uses: burnett01/rsync-deployments@5.2
+      # Step 2: Extract the artifact
+      - name: Extract artifact
+        run: tar -xzvf standalone-build.tar.gz
+
+      # Step 3: Deploy via FTP
+      - name: Deploy to FTP Server
+        uses: SamKirkland/FTP-Deploy-Action@v4
         with:
-          switches: "-avzr"
-          path: ./standalone/
-          remote_path: /path/to/server/target/directory
-          remote_host: ${{ secrets.REMOTE_HOST }}
-          remote_user: ${{ secrets.REMOTE_USER }}
-          remote_key: ${{ secrets.REMOTE_SSH_KEY }}
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          local-dir: .next/standalone
+          server-dir: ${{secrets.FTP_DIR}}
