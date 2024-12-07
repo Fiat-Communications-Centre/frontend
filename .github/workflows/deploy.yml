@@ -1,9 +1,9 @@
 name: Build and Deploy Next.js Site via FTP
 
 on:
-  # Trigger on pushes to the "development" branch
+  # Trigger on pushes to the "deploy" branch
   push:
-    branches: ["development"]
+    branches: ["deploy"]
 
   # Allow manual triggers from the Actions tab
   workflow_dispatch:
