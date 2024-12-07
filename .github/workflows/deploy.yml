@@ -30,7 +30,7 @@ jobs:
 
       # Step 4: Build the project in standalone mode
       - name: Build Next.js standalone
-        run: npm next build && npm next export
+        run: npm run build
 
       # Step 5: Prepare standalone build (remove node_modules from .next/standalone)
       - name: Clean up node_modules
