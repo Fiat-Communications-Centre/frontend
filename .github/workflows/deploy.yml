@@ -22,15 +22,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "yarn"
+          cache: "npm"
 
       # Step 3: Install dependencies
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm install --frozen-lockfile
 
       # Step 4: Build the project in standalone mode
       - name: Build Next.js standalone
-        run: yarn next build && yarn next export
+        run: npm next build && npm next export
 
       # Step 5: Prepare standalone build (remove node_modules from .next/standalone)
       - name: Clean up node_modules
